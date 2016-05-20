@@ -81,23 +81,21 @@ def ticket_gen():
 		member.Ext = Ext
 		member.reciept = reciept
 		member.email_id = email_id
+		member.ticket_no = ticket_no
 		member.save()
-
-		
-
-
 
 		body = unicode(u'''
 			Dear %s,
 				Your order has been recieved with the following information:
+				Order No: %s
 				Product Name: %s
 				Address: %s, %s, %s, %s
 				%s
-				''') % (Cons_name, prod, add, prov, zip_c, country, phone_no)
+				''') % (Cons_name, ticket_no, prod, add, prov, zip_c, country, phone_no)
 				send_to = email_id
 
 				try:
-					email = EmailMessage('Order ')
+					email = EmailMessage('Your order has been placed')
 
 					
 
