@@ -12,11 +12,15 @@ class customer(models.Model):
 	phone_no = models.IntegerField(max_length=15, is_required = True)
 	Ext = models.IntegerField(max_length=4, is_required = True)
 	receipt = models.FileField(upload_to=#dekhte hain, #to be completed)
+	email_id = models.CharField(max_length=100, is_required = True)
+
+	def __str__(self):
+		return self.Cons_name
 
 class ticket(models.Model):
 	choice_ticket = {query = 'query',
-			  order = 'order',
-			  }
+					 order = 'order',
+					}
 	choice_temp = {
 					#make a dict of templates used by agents
 	}
@@ -25,6 +29,7 @@ class agent(models.Model):
 	#some shitty details
 
 class message(models.Model):
+	user = models.ForeignKey(customer)
 	msg_text = models.CharField(max_length = 1000, is_required = True)
 
 class reply(models.Model):
