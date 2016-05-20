@@ -24,6 +24,7 @@ class ticket(models.Model):
 	choice_temp = {
 					#make a dict of templates used by agents
 	}
+	user = models.ForeignKey(customer)
 	ticket = models.ChoiceField(choices = choice_ticket, is_required = True)
 class agent(models.Model):
 	#some shitty details
