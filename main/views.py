@@ -5,6 +5,8 @@ from django.shortcuts import render, render_to_response, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.template import Context
+from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
 
 def ticket_gen():
 		import random
@@ -95,13 +97,14 @@ def ticket_gen():
 				send_to = email_id
 
 				try:
-					email = EmailMessage('Your order has been placed')
+					email = EmailMessage('Your order has been placed', body, 'info1@cyno.co.in', [send_to])
 
 					
 
 	def login_check():
 	def ticket_history():
-	def dashboard():
+	def ag_dashboard();
+	def cus_dashboard():
 		#call ticket_history
 		#messages to be displayed
 
